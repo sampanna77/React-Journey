@@ -34,9 +34,9 @@ function Appcontent() {
             <div className={'min-h-screen bg-gray-600 text-white '}>
                 <Navigation />
 
-                <div className="mx-auto container px-4 py-8   ">
-                    <header>
-                        <h1>React prop explained</h1>
+                <div className="mx-auto container px-4 py-8  ">
+                    <header className="flex justify-center items-center flex-col mb-5 ">
+                        <h1 className="text-3xl bg-white text-black rounded-xl w-fit text-center px-3 py-1 mb-3 ">React props explained</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         </p>
                     </header>
@@ -60,7 +60,7 @@ function Appcontent() {
                     </div>
                     <footer
                         className={`mt-12 text-center pb-8 transition-color transition-colors ${isdark ? "text-gray-400" : "text-gray-600"} `}
-                    >                        <p>Made with 💖 by sampann . All rights reserved</p>
+                    >                        <p>Made with 💖 by sampanna . All rights reserved</p>
                     </footer>
 
                 </div>
