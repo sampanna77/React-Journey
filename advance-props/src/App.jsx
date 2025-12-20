@@ -4,6 +4,7 @@ import Refprops from "./components/refprops.jsx"
 import Complexprops from "./components/Complexprops.jsx"
 import Childrenprops from "./components/children.jsx"
 import { useState } from "react"
+import { Usetheme , Themeprovider } from "./components/themetoggler.jsx"
 
 function Navigation() {
     const sections = [
@@ -27,16 +28,19 @@ function Navigation() {
 }
 
 function Appcontent() {
-        const isdark = true
-
+      //  const isdark = true
+      
+      const { isDark} = Usetheme()
+      
     return (
         <>
-            <div className={'min-h-screen bg-gray-600 text-white '}>
+            <div className={`min-h-screen bg-gray-800 ${isDark ? "bg-gray-900" : "bg-purple-400"}`}>
+              
                 <Navigation />
 
                 <div className="mx-auto container px-4 py-8  ">
                     <header className="flex justify-center items-center flex-col mb-5 ">
-                        <h1 className="text-3xl bg-white text-black rounded-xl w-fit text-center px-3 py-1 mb-3 ">React props explained</h1>
+                        <h1 className= {` p-2 rounded-2xl text-2xl ${isDark ? "bg-white text-gray-800" : "bg-gray-400 text-white "}`}>React props explained</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         </p>
                     </header>
@@ -45,21 +49,22 @@ function Appcontent() {
                             <Basicprops />
                         </div>
                         <div id="ref" className="scroll-mt-200">
-                            <Refprops />
-                        </div>
-                        <div id="children" className="scroll-mt-200">
                             <Childrenprops />
                         </div>
+                        
                         <div id="complex" className="scroll-mt-200">
                             <Complexprops />
                         </div>
+                        <div id="children" className="scroll-mt-200">
+                            <Refprops></Refprops>
+                        </div>
                         <div id="theme" className="scroll-mt-200">
-                            <Themetoggler />
+                            <Themetoggler> </Themetoggler>
                         </div>
 
                     </div>
                     <footer
-                        className={`mt-12 text-center pb-8 transition-color transition-colors ${isdark ? "text-gray-400" : "text-gray-600"} `}
+                        className={`mt-12 text-center pb-8 transition-color transition-colors ${isDark ? "text-gray-400" : "text-gray-600"} `}
                     >                        <p>Made with 💖 by sampanna . All rights reserved</p>
                     </footer>
 
@@ -71,8 +76,11 @@ function Appcontent() {
 }
 
 export default function App() {
-    return (<>
-        <Appcontent />
+    return (
+    <> 
+      <Themeprovider>
+        <Appcontent></Appcontent>
+      </Themeprovider>
     </>)
 
 }

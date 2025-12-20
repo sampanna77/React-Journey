@@ -36,12 +36,12 @@ function Container({ children, layout = "vertical" }) {
 
 export default function Childrenprops() {
   return (
-    <section className="p-8 bg-white rounded-xl shadow-lg">
-      <h2 className="font-bold">Children Props</h2>
+    <section className="p-8 bg-white rounded-xl shadow-lg text-black ">
+      <h2 className="font-bold text-2xl">Children Props</h2>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci beatae corrupti fugit iusto accusantium natus.</p>
-      <div className="space-y-6">
+      <div className="space-y-6 mt-3">
         <div>
-          <h3>Card Component with children</h3>
+          <h3 className="font-bold mb-1">Card Component with children</h3>
           <Container layout="grid">
             <Card
               title="User-profile" color="blue" >
